@@ -1,11 +1,9 @@
 ﻿#include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include <iostream>
 #include <fstream>
-#include <cmath>
 #include <Windows.h>
 #include <sstream>
-#include <string>
+
 
 using namespace std;
 using namespace sf;
@@ -27,19 +25,6 @@ public:
         sprite.setTexture(texture);
         x = X; y = Y;
         sprite.setPosition(x, y);
-    }
-
-    int sit1(int sit, string file, Object sprite)
-    {
-        //Нажатие любой клавиши
-        if (Keyboard::isKeyPressed(Keyboard::Enter)) {
-            //Смена фона
-            sprite.texture.loadFromFile("Images/" + file);
-
-            //Смена ситуации игры
-            sit = 1;
-        }
-        return sit;
     }
 };
 
@@ -227,7 +212,6 @@ int hard_bot(string field[N][N], string motion, int i)
 
 int main()
 {
-    setlocale(LC_ALL, "");
     srand(time(NULL));
 
     //Sit - положение игры в данный момент
@@ -401,7 +385,15 @@ int main()
         switch (sit)
         {
         case 0:
-            if (MenuBG.sit1(sit, "BG/bg1.jpg", MenuBG) == 1) { sit = 1; }
+            //Нажатие enter
+            if (Keyboard::isKeyPressed(Keyboard::Enter)) {
+                //Смена фона
+                MenuBG.texture.loadFromFile("Images/BG/bg1.jpg");
+
+                //Смена ситуации игры
+                sit = 1;
+            }
+            
             break;
         case 1:
             //Проверка на наведение мышки на кнопку
