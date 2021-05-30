@@ -1,0 +1,2 @@
+﻿  Крестики-нолики.cpp
+E:\Прочее\C++\Projects\Крестики-нолики\Крестики-нолики.cpp(1,10): fatal error C1083: Не удается открыть файл включение: SFML/Graphics.hpp: No such file or directory,
